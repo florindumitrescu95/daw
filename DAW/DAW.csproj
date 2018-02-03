@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\models.ts" />
+    <None Remove="ClientApp\Product\Details.tsx" />
     <None Remove="ClientApp\Product\Index.tsx" />
   </ItemGroup>
 
@@ -57,6 +58,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\models.ts" />
+    <TypeScriptCompile Include="ClientApp\Product\Details.tsx" />
     <TypeScriptCompile Include="ClientApp\Product\Index.tsx" />
   </ItemGroup>
 

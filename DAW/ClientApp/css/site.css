@@ -19,6 +19,19 @@
     z-index: 1;
 }
 
+div.ReactModal__Content {
+    left: 25% !important;
+}
+
+@media only screen and (max-width: 837px) {
+    div.ReactModal__Content {
+        top: 60px !important;
+        left: 4% !important;
+        right: 4% !important;
+        bottom: 4% !important;
+    }
+}
+
 @media (max-width: 767px) {
     /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
     body {
