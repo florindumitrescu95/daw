@@ -1,0 +1,16 @@
+﻿table.table {
+    display: inline-block;
+    max-width: 875px;
+    overflow-x: scroll;
+}
+
+button.action {
+    border: none;
+    text-decoration: underline;
+    background: inherit;
+}
+
+form input {
+    display: block !important;
+    text-align: left;
+}
