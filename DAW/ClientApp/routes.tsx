@@ -5,6 +5,6 @@ import { Home } from './components/Home';
 import { Products } from './Product/Index';
 
 export const routes = <Layout>
-    <Route exact path='/' component={ Home } />
-    <Route path='/library' component={ Products } />
+    <Route exact path='/administrate-music-home' component={ Home } />
+    <Route path='/administrate-stuff' component={ Products } />
 </Layout>;

@@ -12,18 +12,18 @@ export class NavMenu extends React.Component<{}, {}> {
                         <span className='icon-bar'></span>
                         <span className='icon-bar'></span>
                     </button>
-                    <Link className='navbar-brand' to={ '/' }>DAW</Link>
+                    <Link className='navbar-brand' to={ '/admin' }>DAW</Link>
                 </div>
                 <div className='clearfix'></div>
                 <div className='navbar-collapse collapse'>
                     <ul className='nav navbar-nav'>
                         <li>
-                            <NavLink to={ '/' } exact activeClassName='active'>
+                            <NavLink to={ '/administrate-music-home' } exact activeClassName='active'>
                                 <span className='glyphicon glyphicon-home'></span> Home
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={'/library'} activeClassName='active'>
+                            <NavLink to={'/administrate-stuff'} activeClassName='active'>
                                 <span className='glyphicon glyphicon-music'></span> 
                                 Albums Administrate
                             </NavLink>

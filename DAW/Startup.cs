@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using DAW.Data;
 using Microsoft.EntityFrameworkCore;
+using DAW.Data.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace DAW
 {
@@ -23,6 +25,12 @@ namespace DAW
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddIdentity<User, IdentityRole>(cfg =>
+            {
+                cfg.User.RequireUniqueEmail = true;
+            })
+            .AddEntityFrameworkStores<AppDbContext>();
+
             services.AddDbContext<AppDbContext>(cfg =>
                 cfg.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 
@@ -47,6 +55,8 @@ namespace DAW
             }
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
