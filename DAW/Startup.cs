@@ -31,6 +31,10 @@ namespace DAW
             })
             .AddEntityFrameworkStores<AppDbContext>();
 
+            services.AddAuthentication()
+                .AddCookie()
+                .AddJwtBearer();
+
             services.AddDbContext<AppDbContext>(cfg =>
                 cfg.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 

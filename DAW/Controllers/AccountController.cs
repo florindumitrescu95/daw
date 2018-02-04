@@ -60,7 +60,7 @@ namespace DAW.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home");
         } 
     }
 }
