@@ -11,6 +11,8 @@ using DAW.Data;
 using Microsoft.EntityFrameworkCore;
 using DAW.Data.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace DAW
 {
@@ -31,9 +33,9 @@ namespace DAW
             })
             .AddEntityFrameworkStores<AppDbContext>();
 
-            services.AddAuthentication()
-                .AddCookie()
-                .AddJwtBearer();
+            services.AddTransient<Seeder>();
+
+            services.AddAuthentication();
 
             services.AddDbContext<AppDbContext>(cfg =>
                 cfg.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
@@ -72,6 +74,7 @@ namespace DAW
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
             });
+
         }
     }
 }

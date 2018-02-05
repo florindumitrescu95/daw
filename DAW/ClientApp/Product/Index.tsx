@@ -72,6 +72,14 @@ export class Products extends React.Component<RouteComponentProps<{}>, ProductSt
     handlePopupSave(success: boolean) {
         if (success)
             this.setState({ showCreate: false, showEdit: false });
+
+        fetch('api/products')
+            .then(response => response.json() as Promise<models.Product[]>)
+            .then(data => {
+                this.setState({
+                    product: data,
+                });
+            });
     }
 
     private renderPopup() {
@@ -83,6 +91,13 @@ export class Products extends React.Component<RouteComponentProps<{}>, ProductSt
             {this.renderPopupContent()}
         </Modal>
 
+    }
+
+    private pushNewState(product: models.Product) {
+        var newState = this.state.product;
+        newState.push(product);
+
+        this.setState({ product: newState });
     }
 
     private renderPopupContent() {

@@ -12,6 +12,7 @@ namespace DAW.Controllers
 {
     [Produces("application/json")]
     [Route("api/Products")]
+
     public class ProductsController : Controller
     {
         private readonly AppDbContext _context;

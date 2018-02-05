@@ -13,6 +13,7 @@ interface CreateEditProps {
     id: number
     dbaction: string
     onSave?: any 
+    pushNewState?: any
 }
 
 export class CreateEdit extends React.Component<CreateEditProps, CreateEditState> {
@@ -49,7 +50,6 @@ export class CreateEdit extends React.Component<CreateEditProps, CreateEditState
     };
 
     formToJson = elements => [].reduce.call(elements, (data, element) => {
-        console.log('formToJson()', element)
         if (this.isValidElement(element) && this.isValidValue(element)) {
             data[element.name] = element.value;
         }
@@ -74,8 +74,10 @@ export class CreateEdit extends React.Component<CreateEditProps, CreateEditState
     }
 
     handleChange(event, state) {
-        let newState = this.state.product;
+        var newState = this.state.product;
         newState[state] = event.target.value;
+
+        console.log(newState[state]);
         this.setState({ product: newState })
     }
 

@@ -7,6 +7,11 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
 using DAW.Data.Entities;
 using DAW.ViewModels;
+using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace DAW.Controllers
 {
@@ -14,12 +19,19 @@ namespace DAW.Controllers
     {
         private readonly ILogger<AccountController> _logger;
         private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<User> _userManager;
+        private readonly IConfiguration _config;
 
         public AccountController (ILogger<AccountController> logger,
-            SignInManager<User> signInManager)
+            SignInManager<User> signInManager,
+            UserManager<User> userManager,
+            IConfiguration config)
         {
             _signInManager = signInManager;
+            _userManager = userManager;
             _logger = logger;
+            _config = config;
+
         }
 
         public IActionResult Login()

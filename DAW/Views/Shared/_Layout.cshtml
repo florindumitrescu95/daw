@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - DAW</title>
     <base href="~/" />
-
     <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" />
     <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/site.css" />
     <environment exclude="Development">
         <link rel="stylesheet" href="~/dist/site.css" asp-append-version="true" />
     </environment>
@@ -20,7 +20,7 @@
     <div class="navbar navbar-inverse">
         <header class="container">
             <div class="navbar-header">
-                <div class="navbar-brand"><i class="fa fa-paint-brush"></i> DAW</div>
+                <div class="navbar-brand"><a href="/"><i class="fa fa-paint-brush"></i> DAW</a></div>
                 <button class="navbar-toggle" data-toggle="collapse" data-target="#menu">&#9776;</button>
             </div>
             <div id="menu" class="collapse navbar-collapse">
@@ -28,11 +28,13 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li><a asp-controller="Account" asp-action="Logout">Logout</a></li>
+                        @*<li><a asp-controlle="Account" asp-action="WishList">WishList</a></li>*@
                     }
                     else
                     {
                         <li><a asp-controller="Account" asp-action="Login">Login</a></li>
                     }
+                    <li><a asp-controller="Home" asp-action="Search">Search</a></li>
                 </ul>
             </div>
         </header>
@@ -42,4 +44,7 @@
     <script src="~/dist/vendor.js" asp-append-version="true"></script>
     @RenderSection("scripts", required: false)
 </body>
+<footer>
+    Something written on the footer. Maybe a  &#169; for ... i don't know 
+</footer>
 </html>
